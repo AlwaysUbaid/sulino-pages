@@ -3,46 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Rewards</title>
+    <title>Rewards - SulinoBot</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style> 
-        body { background-color: #1a0b2e; color: #FFFFFF; }
-            .dropdown {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 10px;
-        width: 200px;
-        background-color: #2d1b45;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-    }
-    .dropdown a {
-        color: #FFFFFF;
-        padding: 10px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #3c2b57;
-    }
-    .dropdown a:hover {
-        background-color: #3c2b57;
-    }
-    .show-dropdown {
-        display: block;
-    }
-    .subscript {
-        font-size: 0.7rem;
-        color: #b3a4c9;
-    }
+    <style>
+        body { 
+            background: linear-gradient(to bottom, #1a0b2e, #28193f); 
+            color: #FFFFFF; 
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            width: 200px;
+            background-color: #2d1b45;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .dropdown a {
+            color: #FFFFFF;
+            padding: 10px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #3c2b57;
+        }
+        .dropdown a:hover {
+            background-color: #3c2b57;
+        }
+        .show-dropdown {
+            display: block;
+        }
+        .subscript {
+            font-size: 0.7rem;
+            color: #b3a4c9;
+        }
+        .balance-card {
+            background: #3b2b5a;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .reward-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        .reward-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
     </style>
     <script>
-    function toggleDropdown() {
-        const dropdown = document.getElementById("dropdownMenu");
-        dropdown.classList.toggle("show-dropdown");
-    }
-</script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.classList.toggle("show-dropdown");
+        }
+    </script>
 </head>
 <body class="h-full flex flex-col justify-between">
     
@@ -65,7 +85,6 @@
     <!-- Dropdown Menu -->
     <div id="dropdownMenu" class="dropdown">
         <a href="profile.html" class="flex items-center">
-            <!-- User Profile Icon Placeholder -->
             <div class="w-8 h-8 rounded-full bg-gray-400 mr-3"></div>
             Profile
         </a>
@@ -75,41 +94,91 @@
     </div>
 </header>
 
+<!-- Main Content - Rewards Section -->
+<main class="container mx-auto p-4 text-center flex-grow overflow-y-auto">
+    <div class="balance-card mx-auto max-w-sm text-center mb-6">
+        <h1 class="text-2xl font-bold">Rewards Balance</h1>
+        <p class="text-4xl font-semibold mt-2">$9,856.56</p>
+    </div>
 
-    <main class="container mx-auto p-4 text-center flex-grow">
-        <h1 class="text-3xl font-bold mb-2">Rewards</h1>
-        <p>Earn rewards based on your activities.</p>
-        <!-- Placeholder content for rewards -->
-    </main>
+    <section class="max-w-md mx-auto">
+        <h2 class="text-lg font-semibold mb-4">Reward Transactions</h2>
 
-    <!-- Bottom Navigation -->
-    <nav class="fixed bottom-0 w-full bg-purple-bg py-3 shadow-lg flex justify-center">
-        <div class="flex justify-around w-11/12 bg-indigo-900 rounded-full py-2 px-4">
-            <a href="index.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.75v10.5a.75.75 0 00.75.75h16.5a.75.75 0 00.75-.75V9.75M3 9.75L12 3l9 6.75M12 3v18" />
-                </svg>
-                <span class="text-xs">Home</span>
-            </a>
-            <a href="rewards.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 9.75h10.5a.75.75 0 010 1.5H9.75a.75.75 0 010-1.5zM9.75 12.75h6.75a.75.75 0 010 1.5H9.75a.75.75 0 010-1.5zM9.75 15.75h3.75a.75.75 0 010 1.5H9.75a.75.75 0 010-1.5z" />
-                </svg>
-                <span class="text-xs">Rewards</span>
-            </a>
-            <a href="lottery.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l3 3m0 0l3-3m-3 3V6m9 6l3 3m0 0l3-3m-3 3V6" />
-                </svg>
-                <span class="text-xs">Lottery</span>
-            </a>
-            <a href="holdings.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3.75v16.5m8.25-8.25H3.75" />
-                </svg>
-                <span class="text-xs">Holdings</span>
-            </a>
+        <!-- Reward Entries -->
+        <div class="reward-item flex justify-between items-center">
+            <div>
+                <p>Transaction ID: 12345</p>
+                <p class="text-sm text-gray-300">Earned from trading</p>
+            </div>
+            <span class="text-green-400 font-semibold">+ $150.25</span>
         </div>
-    </nav>
+        <div class="reward-item flex justify-between items-center">
+            <div>
+                <p>Transaction ID: 67890</p>
+                <p class="text-sm text-gray-300">Referral bonus</p>
+            </div>
+            <span class="text-green-400 font-semibold">+ $200.75</span>
+        </div>
+        <div class="reward-item flex justify-between items-center">
+            <div>
+                <p>Transaction ID: 54321</p>
+                <p class="text-sm text-gray-300">Earned from staking</p>
+            </div>
+            <span class="text-green-400 font-semibold">+ $100.50</span>
+        </div>
+        <div class="reward-item flex justify-between items-center">
+            <div>
+                <p>Transaction ID: 98765</p>
+                <p class="text-sm text-gray-300">Bonus reward</p>
+            </div>
+            <span class="text-green-400 font-semibold">+ $50.00</span>
+        </div>
+        <div class="reward-item flex justify-between items-center">
+            <div>
+                <p>Transaction ID: 24680</p>
+                <p class="text-sm text-gray-300">Special event reward</p>
+            </div>
+            <span class="text-green-400 font-semibold">+ $125.05</span>
+        </div>
+        <div class="reward-item flex justify-between items-center">
+            <div>
+                <p>Transaction ID: 13579</p>
+                <p class="text-sm text-gray-300">Earned from trading</p>
+            </div>
+            <span class="text-green-400 font-semibold">+ $75.00</span>
+        </div>
+    </section>
+</main>
+
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-purple-bg py-3 shadow-lg flex justify-center">
+    <div class="flex justify-around w-11/12 bg-indigo-900 rounded-full py-2 px-4">
+        <a href="index.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v6m0 0H9m6 6v6m0 0h3m-3 0h-6m6-6H9" />
+            </svg>
+            <span class="text-xs">Home</span>
+        </a>
+        <a href="rewards.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m6 4H9m6-8H9" />
+            </svg>
+            <span class="text-xs">Rewards</span>
+        </a>
+        <a href="lottery.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2v6m0 0H6m12 0v6" />
+            </svg>
+            <span class="text-xs">Lottery</span>
+        </a>
+        <a href="holdings.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18V5m4 0v13m4 0V5m4 0v13" />
+            </svg>
+            <span class="text-xs">Holdings</span>
+        </a>
+    </div>
+</nav>
+
 </body>
 </html>
