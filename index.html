@@ -60,8 +60,14 @@
             color: #b3a4c9;
         }
     </style>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.classList.toggle("show-dropdown");
+        }
+    </script>
 </head>
-<body class="h-full overflow-hidden relative">
+<body class="h-full flex flex-col">
 
 <!-- Top Navigation with Dropdown Menu -->
         <header class="px-4 py-2 flex items-center justify-between bg-purple-900 relative">
