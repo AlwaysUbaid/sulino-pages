@@ -7,19 +7,74 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style> 
         body { background-color: #1a0b2e; color: #FFFFFF; }
+            .dropdown {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        width: 200px;
+        background-color: #2d1b45;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+    .dropdown a {
+        color: #FFFFFF;
+        padding: 10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #3c2b57;
+    }
+    .dropdown a:hover {
+        background-color: #3c2b57;
+    }
+    .show-dropdown {
+        display: block;
+    }
+    .subscript {
+        font-size: 0.7rem;
+        color: #b3a4c9;
+    }
     </style>
+    <script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.classList.toggle("show-dropdown");
+    }
+</script>
 </head>
 <body class="h-full flex flex-col justify-between">
     
-    <!-- Compact Back Button -->
-    <header class="px-4 py-2 flex items-center">
-        <a href="index.html" class="text-gray-300 hover:text-white flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-            <span class="text-sm">Back to Home</span>
+<!-- Top Navigation with Dropdown Menu -->
+<header class="px-4 py-2 flex items-center justify-between bg-purple-900 relative">
+    <button onclick="toggleDropdown()" class="text-gray-300 hover:text-white focus:outline-none">
+        <!-- Hamburger Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <div class="text-center">
+        <span class="text-lg font-bold">Sulino Bot</span>
+        <span class="subscript block">(By AK)</span>
+    </div>
+    
+    <div></div> <!-- Placeholder for alignment -->
+
+    <!-- Dropdown Menu -->
+    <div id="dropdownMenu" class="dropdown">
+        <a href="profile.html" class="flex items-center">
+            <!-- User Profile Icon Placeholder -->
+            <div class="w-8 h-8 rounded-full bg-gray-400 mr-3"></div>
+            Profile
         </a>
-    </header>
+        <a href="settings.html">Settings</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+</header>
+
 
     <main class="container mx-auto p-4 text-center flex-grow">
         <h1 class="text-3xl font-bold mb-2">Your Holdings</h1>
