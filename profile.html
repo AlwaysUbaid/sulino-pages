@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profile - SulinoBot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a0b2e;
+            color: #FFFFFF;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            width: 200px;
+            background-color: #2d1b45;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .dropdown a {
+            color: #FFFFFF;
+            padding: 10px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #3c2b57;
+        }
+        .dropdown a:hover {
+            background-color: #3c2b57;
+        }
+        .show-dropdown {
+            display: block;
+        }
+        .subscript {
+            font-size: 0.7rem;
+            color: #b3a4c9;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.classList.toggle("show-dropdown");
+        }
+    </script>
+</head>
+<body class="h-full flex flex-col">
+    
+    <!-- Top Navigation with Dropdown Menu -->
+    <header class="px-4 py-2 flex items-center justify-between bg-purple-900 relative">
+        <button onclick="toggleDropdown()" class="text-gray-300 hover:text-white focus:outline-none">
+            <!-- Hamburger Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <div class="text-center">
+            <span class="text-lg font-bold">Sulino Bot</span>
+            <span class="subscript block">(By AK)</span>
+        </div>
+        
+        <div></div> <!-- Placeholder for alignment -->
+
+        <!-- Dropdown Menu -->
+        <div id="dropdownMenu" class="dropdown">
+            <a href="profile.html" class="flex items-center">
+                <!-- User Profile Icon Placeholder -->
+                <div class="w-8 h-8 rounded-full bg-gray-400 mr-3"></div>
+                Profile
+            </a>
+            <a href="settings.html">Settings</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <header class="px-4 py-2 flex items-center">
+        <a href="index.html" class="text-gray-300 hover:text-white flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span class="text-sm">Back to Home</span>
+        </a>
+    </header>
+
+    <!-- Main Content - Profile Section -->
+    <main class="container mx-auto p-6 text-center">
+        <div class="flex flex-col items-center">
+            <!-- Profile Picture and Name -->
+            <div class="w-24 h-24 rounded-full bg-gray-400 mb-4"></div>
+            <h1 class="text-3xl font-bold mb-2">User Name</h1>
+            <p class="text-gray-400 mb-6">user@example.com</p>
+            
+            <!-- Profile Options -->
+            <section class="bg-purple-800 rounded-lg p-4 mb-4 w-full max-w-md text-left">
+                <h2 class="text-xl font-semibold mb-2">Account</h2>
+                <a href="#" class="flex items-center justify-between py-2 border-b border-gray-700">
+                    <span>Edit Profile</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center justify-between py-2 border-b border-gray-700">
+                    <span>Link Accounts</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </section>
+
+            <section class="bg-purple-800 rounded-lg p-4 mb-4 w-full max-w-md text-left">
+                <h2 class="text-xl font-semibold mb-2">Activity</h2>
+                <a href="#" class="flex items-center justify-between py-2 border-b border-gray-700">
+                    <span>View Trade History</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center justify-between py-2 border-b border-gray-700">
+                    <span>Recent Activity</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </section>
+
+            <section class="bg-purple-800 rounded-lg p-4 mb-4 w-full max-w-md text-left">
+                <h2 class="text-xl font-semibold mb-2">Security</h2>
+                <a href="#" class="flex items-center justify-between py-2 border-b border-gray-700">
+                    <span>Manage 2FA</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center justify-between py-2 border-b border-gray-700">
+                    <span>Password Change</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 w-full bg-purple-bg py-3 shadow-lg flex justify-center">
+        <div class="flex justify-around w-11/12 bg-indigo-900 rounded-full py-2 px-4">
+            <a href="index.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v6m0 0H9m6 6v6m0 0h3m-3 0h-6m6-6H9" />
+                </svg>
+                <span class="text-xs">Home</span>
+            </a>
+            <a href="rewards.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l-2 2m0 0l2 2m-2-2h.01M7 10h.01M4 6h16M4 12h16m0 0h.01m-2-2m4-8v6M2 2l20 20" />
+                </svg>
+                <span class="text-xs">Rewards</span>
+            </a>
+            <a href="lottery.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v2a2 2 0 01-2 2h-2M7 8H5a2 2 0 00-2 2v2a2 2 0 002 2h2M17 16v2a2 2 0 01-2 2H9a2 2 0 01-2-2v-2M3 3l18 18" />
+                </svg>
+                <span class="text-xs">Lottery</span>
+            </a>
+            <a href="holdings.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18V5m4 0v13m4 0V5m4 0v13" />
+                </svg>
+                <span class="text-xs">Holdings</span>
+            </a>
+        </div>
+    </nav>
+
+</body>
+</html>
