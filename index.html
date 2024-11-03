@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <title>Sulino DEX</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Telegram Webapp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        /* Custom Styles */
+        body { background-color: #1a0b2e; color: #FFFFFF; font-family: sans-serif; }
+        .btn-primary { background: linear-gradient(135deg, #7f00ff, #e100ff); padding: 0.75rem 1.5rem; border-radius: 0.5rem; color: #FFF; font-weight: bold; }
+        .section-heading { font-weight: bold; font-size: 1.25rem; }
+        .highlight { color: #E100FF; }
+        .bg-card { background: #2d1b3d; border-radius: 0.75rem; padding: 1.25rem; }
+        .purple-bg { background: #7f00ff; }
+        .pink-text { color: #ff4d8d; }
+        
+        /* Button Responsiveness */
+        .responsive-btn { padding: 0.75rem; font-size: 1rem; border-radius: 0.5rem; transition: all 0.3s; }
+        .responsive-btn:active { transform: scale(0.98); }
+
+        /* Mobile-only Styling */
+        @media (max-width: 640px) {
+            .desktop-only { display: none; }
+        }
+    </style>
+</head>
+<body class="h-full overflow-hidden relative">
+
+    <!-- Top Section with Transaction and Settings Buttons -->
+    <header class="px-4 py-4 flex justify-between items-center">
+        <button onclick="showTransactions()" class="responsive-btn text-white bg-purple-bg rounded-full p-2">🔄</button>
+        <h2 class="text-center text-xl font-bold">Sulino DEX</h2>
+        <button onclick="showSettings()" class="responsive-btn text-white bg-purple-bg rounded-full p-2">⚙️</button>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="container mx-auto p-4 space-y-6">
+        
+        <!-- Total Balance -->
+        <section class="text-center">
+            <h2 class="text-lg text-gray-400">Total Balance</h2>
+            <p class="text-4xl font-bold">$0.00</p>
+        </section>
+
+        <!-- Spotlight Section -->
+        <section class="px-4 mb-4">
+            <h3 class="section-heading mb-2">Spotlight</h3>
+            <div class="bg-card flex items-center justify-between">
+                <div>
+                    <h4 class="text-lg">Peanut the Squirrel</h4>
+                    <p class="text-green-500">▲ 60.31% Past day</p>
+                    <span class="highlight">Bought $95.06</span>
+                </div>
+                <div class="pink-text">Live</div>
+            </div>
+        </section>
+
+        <!-- Top Gainers Section -->
+        <section class="px-4 mb-4">
+            <h3 class="section-heading mb-2">Top Gainers</h3>
+            <div class="flex space-x-4 overflow-x-auto">
+                <div class="bg-card flex-shrink-0 p-3 text-center w-24">
+                    <p>KAMA</p>
+                    <p class="text-green-500">▲ 63.07%</p>
+                </div>
+                <div class="bg-card flex-shrink-0 p-3 text-center w-24">
+                    <p>Pnut</p>
+                    <p class="text-green-500">▲ 60.31%</p>
+                </div>
+            </div>
+        </section>
+
+<!-- Trending Section -->
+<section class="px-4 mb-4">
+    <h3 class="section-heading mb-2">Trending</h3>
+    <div class="bg-card p-4 space-y-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="Pnut">
+                <div>
+                    <p class="font-bold">Pnut</p>
+                    <span class="text-gray-400 text-xs">$81.2M MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$0.0812</p>
+                <p class="text-green-500">▲ 59.85%</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="Luce">
+                <div>
+                    <p class="font-bold">LUCE</p>
+                    <span class="text-gray-400 text-xs">$20.7M MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$0.0207</p>
+                <p class="text-red-500">▼ 26.23%</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="Popcat">
+                <div>
+                    <p class="font-bold">POPcat</p>
+                    <span class="text-gray-400 text-xs">$1.3B MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$1.29</p>
+                <p class="text-red-500">▼ 12.3%</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="GOAT">
+                <div>
+                    <p class="font-bold">GOAT</p>
+                    <span class="text-gray-400 text-xs">$451M MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$0.451</p>
+                <p class="text-red-500">▼ 3.33%</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="$WIF">
+                <div>
+                    <p class="font-bold">$WIF</p>
+                    <span class="text-gray-400 text-xs">$2.0B MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$1.98</p>
+                <p class="text-red-500">▼ 8.59%</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="MOODENG">
+                <div>
+                    <p class="font-bold">MOODENG</p>
+                    <span class="text-gray-400 text-xs">$145M MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$0.147</p>
+                <p class="text-red-500">▼ 12.99%</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="FWOG">
+                <div>
+                    <p class="font-bold">FWOG</p>
+                    <span class="text-gray-400 text-xs">$244M MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$0.251</p>
+                <p class="text-red-500">▼ 9.79%</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" class="rounded-full" alt="suwi">
+                <div>
+                    <p class="font-bold">suwi</p>
+                    <span class="text-gray-400 text-xs">$5.9M MKT CAP</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-lg">$0.00595</p>
+                <p class="text-green-500">▲ 0.192%</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Invite Friends Section with Responsive Button -->
+        <section class="px-4 py-6 text-center">
+            <h2 class="section-heading">Make money when your friends trade*</h2>
+            <p class="text-sm text-gray-400">Earn 50% of all trading fees from each friend you refer.</p>
+            <button class="btn-primary responsive-btn mt-4 w-full">Invite a Friend</button>
+        </section>
+
+        <!-- User Portfolio Summary -->
+        <section class="px-4 mb-6">
+            <h3 class="section-heading mb-2">Your Holdings</h3>
+            <div class="bg-card p-4 space-y-3">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://via.placeholder.com/40" class="rounded-full" alt="BTC">
+                        <div>
+                            <p class="font-bold">Bitcoin (BTC)</p>
+                            <span class="text-gray-400 text-xs">0.005 BTC</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-lg">$150</p>
+                        <p class="text-green-500">▲ 1.5%</p>
+                    </div>
+                </div>
+                <!-- Add more holdings in the same format as needed -->
+            </div>
+        </section>
+    </main>
+
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-purple-bg py-3 shadow-lg flex justify-center">
+    <div class="flex justify-around w-11/12 bg-indigo-900 rounded-full py-2 px-4">
+        <a href="index.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.75v10.5a.75.75 0 00.75.75h16.5a.75.75 0 00.75-.75V9.75M3 9.75L12 3l9 6.75M12 3v18" />
+            </svg>
+            <span class="text-xs">Home</span>
+        </a>
+        <a href="rewards.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 9.75h10.5a.75.75 0 010 1.5H9.75a.75.75 0 010-1.5zM9.75 12.75h6.75a.75.75 0 010 1.5H9.75a.75.75 0 010-1.5zM9.75 15.75h3.75a.75.75 0 010 1.5H9.75a.75.75 0 010-1.5z" />
+            </svg>
+            <span class="text-xs">Rewards</span>
+        </a>
+        <a href="lottery.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l3 3m0 0l3-3m-3 3V6m9 6l3 3m0 0l3-3m-3 3V6" />
+            </svg>
+            <span class="text-xs">Lottery</span>
+        </a>
+        <a href="holdings.html" class="flex flex-col items-center text-gray-300 focus:text-white transition duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3.75v16.5m8.25-8.25H3.75" />
+            </svg>
+            <span class="text-xs">Holdings</span>
+        </a>
+    </div>
+</nav>
+
+
+
+    <!-- Transaction Page -->
+    <div id="transactionsPage" class="fixed inset-0 bg-purple-bg text-white p-6 hidden">
+        <button onclick="hidePage('transactionsPage')" class="responsive-btn absolute top-4 right-4 text-white text-2xl">✖️</button>
+        <h2 class="text-2xl mb-4">Activity</h2>
+        <p class="text-center text-gray-400">No transactions yet</p>
+        <button class="btn-primary responsive-btn w-full mt-4" onclick="alert('Exploring moonshots...')">Explore moonshots</button>
+    </div>
+
+    <!-- Settings Page -->
+    <div id="settingsPage" class="fixed inset-0 bg-purple-bg text-white p-6 hidden">
+        <button onclick="hidePage('settingsPage')" class="responsive-btn absolute top-4 right-4 text-white text-2xl">✖️</button>
+        <h2 class="text-2xl mb-4">Settings</h2>
+        <div class="space-y-4">
+            <div>
+                <p class="text-gray-400">Notifications</p>
+                <p>Enable or disable notifications</p>
+            </div>
+            <div>
+                <p class="text-gray-400">Export keys</p>
+                <p>Export your account keys securely</p>
+            </div>
+            <div>
+                <p class="text-gray-400">Rate Sulino DEX</p>
+                <p>Let us know how we're doing</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modal Controls -->
+    <script>
+        function showTransactions() {
+            document.getElementById('mainContent').classList.add('hidden');
+            document.getElementById('transactionsPage').classList.remove('hidden');
+        }
+
+        function showSettings() {
+            document.getElementById('mainContent').classList.add('hidden');
+            document.getElementById('settingsPage').classList.remove('hidden');
+        }
+
+        function hidePage(pageId) {
+            document.getElementById(pageId).classList.add('hidden');
+            document.getElementById('mainContent').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
